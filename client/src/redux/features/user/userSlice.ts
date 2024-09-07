@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { getServerURL } from '@/config/ENV.config';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
@@ -27,7 +28,7 @@ export const getUser = createAsyncThunk('user/getUser', async () => {
     `bearer ${localStorage.getItem('token')}`
   );
   const res = await fetch(
-    'https://divine-library-backend.vercel.app/api/v1/auth/get-user',
+    `${getServerURL()}/auth/get-user`,
     {
       headers: requestHeaders,
     }

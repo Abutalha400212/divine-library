@@ -1,3 +1,4 @@
+import { getServerURL } from '@/config/ENV.config';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const requestHeaders: HeadersInit = new Headers();
 requestHeaders.set('Content-Type', 'application/json');
@@ -6,7 +7,7 @@ export const api = createApi({
   reducerPath: 'api',
   tagTypes: ['books'],
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://divine-library-backend.vercel.app/api/v1/',
+    baseUrl: getServerURL(),
     headers: requestHeaders,
   }),
   endpoints: () => ({}),
